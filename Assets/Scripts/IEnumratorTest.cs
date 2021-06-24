@@ -8,12 +8,14 @@ public class IEnumratorTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		//开启协程
+		StartCoroutine(Create());
 	}
 	
 	IEnumerator Create()
     {
 		//当协程执行如下语句是会延时3秒在继续执行下面的语句
 		yield return new WaitForSeconds(3);
+		print("3秒到了");
     }
 }

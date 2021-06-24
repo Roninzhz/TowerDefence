@@ -44,5 +44,12 @@ public class CameraController : MonoBehaviour {
 			//根据鼠标左右移动  旋转摄像机
 			transform.Rotate(new Vector3(0, mX, 0)*Time.deltaTime*rotateSpeed);
 		}
+		//开启
+		StartCoroutine(Fun());
 	}
+	//协程  
+	IEnumerator Fun()
+    {
+		yield return 0;
+    }
 }

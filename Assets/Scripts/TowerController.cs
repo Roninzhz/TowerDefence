@@ -18,6 +18,10 @@ public class TowerController : MonoBehaviour {
 	/// 子弹预制体的名字
 	/// </summary>
 	string[] bulletNames = { "Bullet_Fire", "Bullet_Ice" };
+	/// <summary>
+	/// 间隔时间
+	/// </summary>
+	public float Interval = 2;
 	// Use this for initialization
 	void Start () {
 		//开辟空间
@@ -28,11 +32,16 @@ public class TowerController : MonoBehaviour {
 			//从内容加载，赋值给数组
 			bullets[i] = Resources.Load<GameObject>("Bullets/" + bulletNames[i]);
         }
-
+		//开启 协程
+		StartCoroutine(AutoCheckRangeEnemy());
 	}
+	//协程 ：协同程序  使用场景：1.分解操作  2.延时操作
+	IEnumerator AutoCheckRangeEnemy()
+    {
+		while(true)
+        {
+			yield return new WaitForSeconds(Interval);
+		}
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interval: 2
+  bulletType: 1
   layer:
     serializedVersion: 2
     m_Bits: 1024

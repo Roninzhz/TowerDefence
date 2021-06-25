@@ -22,8 +22,16 @@ public class TowerController : MonoBehaviour {
 	/// 间隔时间
 	/// </summary>
 	public float Interval = 2;
+
+	//发射点
+	Transform firePoint;
+
+	//子弹类型的枚举
+	public BulletType bulletType;
 	// Use this for initialization
 	void Start () {
+		//transform.Find在当前的子物体下方根据名字去查找方法，不能找到更深层级的物体
+		firePoint = transform.Find("FirePos");
 		//开辟空间
 		bullets = new GameObject[bulletNames.Length];
         //循环
@@ -69,6 +77,31 @@ public class TowerController : MonoBehaviour {
 					transform.rotation = Quaternion.Lerp(transform.rotation, q, 0.5f);
 					//等待一个渲染帧在执行下次循环
 					yield return null;
+                }
+				//诞生子弹在发射点的位置  旋转与发射点保持一致
+			GameObject bulletObj=Instantiate(bullets[(int)bulletType],firePoint.position,firePoint.rotation);
+				//根据子弹的攻击方法  来选择具体的攻击逻辑
+				//Fire 抛物线 方式  Ice跟随效果
+
+				//查找子弹身上的控制脚本
+				BulletsController bulletsController= bulletObj.GetComponent<BulletsController>();
+
+				switch(bulletType)
+                {
+					//如果是大炮子弹
+					case BulletType.Fire:
+						//设置效果
+						bulletsController.atkType = AtkType.Lob;
+						//获取敌人坐标 发送给子弹
+						bulletsController.SetTarget(enemy);
+						break;
+						//如果是弓弩子弹
+					case BulletType.Ice:
+						//设置效果
+						bulletsController.atkType = AtkType.Follow;
+						//获取敌人坐标 发送给子弹
+						bulletsController.SetTarget(enemy);
+						break;
                 }
             }
 		}

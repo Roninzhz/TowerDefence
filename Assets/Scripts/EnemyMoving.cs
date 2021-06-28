@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class EnemyMoving : MonoBehaviour {
 
-    private Transform[] positions;
+    private Vector3[] positions;
 
     public int index = 0;
 
@@ -18,7 +18,7 @@ public class EnemyMoving : MonoBehaviour {
     void Start()
     {
         //获取路径点 数组
-        positions = PathManager.wayPoint;
+        positions = PathManager.points;
     }
 
     // Update is called once per frame
@@ -35,9 +35,9 @@ public class EnemyMoving : MonoBehaviour {
         if (index <= positions.Length - 1)
         {
             //获得 单位向量
-            transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
+            transform.Translate((positions[index] - transform.position).normalized * Time.deltaTime * speed);
             // transform.position =  Vector3.up * 0.3f;
-            if (Vector3.Distance(positions[index].position, transform.position) <= 1f)
+            if (Vector3.Distance(positions[index], transform.position) <= 1f)
             {
                 index++;
             }

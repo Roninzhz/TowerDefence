@@ -13,35 +13,26 @@ public class CreateTower : MonoBehaviour {
 	/// 用来存放内存中获取的塔
 	/// </summary>
 	GameObject[] towerPrefabs;
-
 	/// <summary>
 	/// 用来存放内存中获取的塔阴影
 	/// </summary>
 	GameObject[] towerShadowPrefabs;
-
 	/// <summary>
 	/// 用来存放实例化到场景中的塔阴影
 	/// </summary>
 	GameObject[] towerInstanceShadowPrefabs;
-
 	/// <summary>
 	/// 用来存放场景中已经存在的模型(就是屏幕左上角的那两个)
 	/// </summary>
 	GameObject[] towerShows;
-
 	//塔的名字
 	string[] towerPrefabName = { "Tower_Crossbow", "Tower_Mortar" };
-
 	//塔阴影的名字
 	string[] towerShadowName = { "Tower_Crossbow_shadow", "Tower_Mortar_shadow" };
-
 	//场景中显示的模型名字
 	string[] towerShowName = { "Tower_Crossbow_show", "Tower_Mortar_show" };
-
 	//当前显示塔的索引 当前索引为0时表示弓弩 索引为1是表示大炮
 	int currentShowIndex = 0;
-
-
 	void Awake()
     {
 		//加载内存中获取的塔
@@ -54,12 +45,10 @@ public class CreateTower : MonoBehaviour {
 		   //                 参数  string类型  要的是该文件下具体到加载对象名字的路径
 			towerPrefabs[i]= Resources.Load<GameObject>("Towers/"+towerPrefabName[i]);
 		}
-
 		//加载内存中获取的塔阴影
 		towerShadowPrefabs = new GameObject[towerShadowName.Length];
 		for (int i = 0; i < towerShadowPrefabs.Length; i++)
 		{
-
 			towerShadowPrefabs[i] = Resources.Load<GameObject>("Towers/"+ towerShadowName[i]);
 		}
 
@@ -69,7 +58,6 @@ public class CreateTower : MonoBehaviour {
 		{
 			//依次实例化并存储
 			towerInstanceShadowPrefabs[i] = Instantiate(towerShadowPrefabs[i]);
-
 			//禁用所有阴影
 			towerInstanceShadowPrefabs[i].SetActive(false);
 		}
@@ -81,7 +69,6 @@ public class CreateTower : MonoBehaviour {
 			towerShows[i] = GameObject.Find(towerShowName[i]);
 			//测试
 			towerShows[i].SetActive(false);
-
 			//如果i不等于当前索引
 			if(i!=currentShowIndex)
             {
@@ -93,13 +80,10 @@ public class CreateTower : MonoBehaviour {
 
 	//声明射线类型
 	Ray ray;
-
 	//射线返回的信息
 	RaycastHit hit;
-
 	//可以被检测层级对象
 	public LayerMask layer;
-
 	//塔的高度
 	float high = 13.5f;
 	// Update is called once per frame
@@ -137,12 +121,10 @@ public class CreateTower : MonoBehaviour {
 
 			}
 		}
-
 		//禁用阴影
 		else
 			towerInstanceShadowPrefabs[currentShowIndex].SetActive(false);
 		//尝试按下键盘的1键将当前显示的索引设置为0 按下2键当前显示的索引值为1
-
 		//按下1键
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
@@ -151,7 +133,6 @@ public class CreateTower : MonoBehaviour {
 
 		//按下2键
 		if (Input.GetKeyDown(KeyCode.Alpha2))
-
 		{
 			SetTowerCurrentIndext(currentShowIndex = 1);
 		}

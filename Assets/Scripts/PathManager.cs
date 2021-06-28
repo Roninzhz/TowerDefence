@@ -16,6 +16,7 @@ public class PathManager : MonoBehaviour {
 	/// 线性渲染组件
 	/// </summary>
 	LineRenderer line;
+
 	// Use this for initialization
 	void Start () {
 
@@ -34,10 +35,8 @@ public class PathManager : MonoBehaviour {
 
 		//将绘制点数量赋值给线性组件
 		line.positionCount = points.Length;
-
 		line.startColor = Color.red;
 		line.endColor = Color.black;
-
 		//根据路点数组  绘制一根线
 		line.SetPositions(points);
 	}

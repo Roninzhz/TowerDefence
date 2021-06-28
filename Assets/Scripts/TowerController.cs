@@ -22,12 +22,11 @@ public class TowerController : MonoBehaviour {
 	/// 间隔时间
 	/// </summary>
 	public float Interval = 2;
-
 	//发射点
 	Transform firePoint;
-
 	//子弹类型的枚举
 	public BulletType bulletType;
+
 	// Use this for initialization
 	void Start () {
 		//transform.Find在当前的子物体下方根据名字去查找方法，不能找到更深层级的物体
@@ -43,24 +42,21 @@ public class TowerController : MonoBehaviour {
 		//开启 协程
 		StartCoroutine(AutoCheckRangeEnemy());
 	}
-	//协程 ：协同程序  使用场景：1.分解操作  2.延时操作
 
+	//协程 ：协同程序  使用场景：1.分解操作  2.延时操作
 	//自动检测范围内的敌人
 	IEnumerator AutoCheckRangeEnemy()
     {
 		while(true)
         {
 			yield return new WaitForSeconds(Interval);
-
 			//查找敌人
 			Transform enemy = GetEnemy();
-
 			if(enemy!=null)
             {
 				//旋转看向敌人
 				//获取塔看向敌人方向
 				Vector3 targetDir = enemy.position - transform.position;
-
 				//计算旋转的角度
 				Quaternion q = Quaternion.LookRotation(targetDir);
 				//如果敌人不为空 且 塔的旋转大于目标角度
@@ -82,10 +78,8 @@ public class TowerController : MonoBehaviour {
 			GameObject bulletObj=Instantiate(bullets[(int)bulletType],firePoint.position,firePoint.rotation);
 				//根据子弹的攻击方法  来选择具体的攻击逻辑
 				//Fire 抛物线 方式  Ice跟随效果
-
 				//查找子弹身上的控制脚本
 				BulletsController bulletsController= bulletObj.GetComponent<BulletsController>();
-
 				switch(bulletType)
                 {
 					//如果是大炮子弹
@@ -122,7 +116,7 @@ public class TowerController : MonoBehaviour {
 			return null;
 
 		//根据距离  选择返回数组中最小的敌人
-		float minDis = float.MinValue;
+		float minDis = Vector3.Distance(transform.position, targets[0].transform.position);
 		//最小的敌人对应数组的索引下标值
 		int minIndex = 0;
         //遍历数组
@@ -133,7 +127,6 @@ public class TowerController : MonoBehaviour {
 				continue;
 			//如果假设的最小距离 大于当前计算的距离
 			float currentDis = Vector3.Distance(transform.position, targets[i].transform.position);
-
 			if(minDis>currentDis)
             {
 				//将当前距离赋值给最小的距离(保证minDis中存放时最小的)

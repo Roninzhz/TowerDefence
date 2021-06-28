@@ -18,24 +18,20 @@ public class CameraController : MonoBehaviour {
 	//旋转速度
 	[Tooltip("旋转的速度")]
 	public float rotateSpeed = 20;
+
 	// Update is called once per frame
 	void Update () {
 		//获取键盘水平垂直
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
-
 		//做成vector3
 		Vector3 moveDir = new Vector3(h, 0, v);
-
 		//四元素乘向量    基于摄像机的角度进行平移
 		moveDir = transform.rotation * moveDir;
-
 		//将y值实时赋值为0  防止向下
 		moveDir.y = 0;
-
 		//移动
 		transform.Translate(moveDir * Time.deltaTime*moveSpeed,Space.World);
-
 		//当摁住鼠标右键
 		if(Input.GetMouseButton(1))
         {

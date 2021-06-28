@@ -6,9 +6,7 @@ using UnityEngine;
 /// </summary>
 public class TowerBaseInfo : MonoBehaviour {
 	//设置默认状态
-	public TowerBase_Type type = TowerBase_Type.None;
-
-	
+	public TowerBase_Type type = TowerBase_Type.None;	
 }
 ///<summary>
 /// 代表塔类型的枚举    -1空塔   0弓弩   1代表大炮

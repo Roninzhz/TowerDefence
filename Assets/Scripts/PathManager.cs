@@ -16,7 +16,7 @@ public class PathManager : MonoBehaviour {
 	/// 线性渲染组件
 	/// </summary>
 	LineRenderer line;
-
+	public static Transform[] wayPoint;
 	// Use this for initialization
 	void Start () {
 
@@ -24,14 +24,16 @@ public class PathManager : MonoBehaviour {
 		line = GetComponent<LineRenderer>();
 		//分配路点数组的空间
 		points = new Vector3[transform.childCount];
-
+		wayPoint = new Transform[transform.childCount];
 		for(int  i=0;i<points.Length;i++)
         {
 			//获取父物体下的每一个路点 存储到路点数组中
 			points[i] = transform.GetChild(i).position;
+
+			wayPoint[i] = transform.GetChild(i);
 			//测试
-			//print(points[i].position);
-        }
+			//print(wayPoint[i].position);
+		}
 
 		//将绘制点数量赋值给线性组件
 		line.positionCount = points.Length;

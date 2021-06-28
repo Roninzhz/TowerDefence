@@ -18131,4 +18131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletType: 0
+  moveSpeed: 10
   atkType: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024

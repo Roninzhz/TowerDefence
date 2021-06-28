@@ -56,8 +56,10 @@
      <Compile Include="Assets\Scripts\BulletsController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\CreateTower.cs" />
+     <Compile Include="Assets\Scripts\EnemyMoving.cs" />
      <Compile Include="Assets\Scripts\IEnumratorTest.cs" />
      <Compile Include="Assets\Scripts\PathManager.cs" />
+     <Compile Include="Assets\Scripts\SpwanEnemy.cs" />
      <Compile Include="Assets\Scripts\TowerBaseInfo.cs" />
      <Compile Include="Assets\Scripts\TowerController.cs" />
      <Compile Include="Assets\TowerDefense\Models\Effects\Ice\CFX_ShurikenThreadFix.cs" />

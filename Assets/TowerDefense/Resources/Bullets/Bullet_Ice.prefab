@@ -22706,3 +22706,6 @@ MonoBehaviour:
   BulletType: 1
   moveSpeed: 5
   atkType: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 1024

@@ -11,7 +11,7 @@ public class PathManager : MonoBehaviour {
 	/// <summary>
 	/// 路线数组
 	/// </summary>
-	Vector3[] points;
+	public static Vector3[] points;
 	/// <summary>
 	/// 线性渲染组件
 	/// </summary>

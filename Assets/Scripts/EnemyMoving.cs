@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 敌人的移动
+/// </summary>
+
 public class EnemyMoving : MonoBehaviour {
 
     private Transform[] positions;
 
     public int index = 0;
 
-    public float speed = 5f;
+    public float speed = 30f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,6 @@ public class EnemyMoving : MonoBehaviour {
         //调用敌人移动方法
         Moving();
     }
-
     void Moving()
     {
         //执行移动方法

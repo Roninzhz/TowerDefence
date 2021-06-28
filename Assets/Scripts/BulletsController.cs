@@ -69,7 +69,7 @@ public class BulletsController : MonoBehaviour {
 							transform.Translate(new Vector3(0, 2, 0), Space.World);
                         }
                     }
-					Destroy(gameObject, 3);
+					Destroy(gameObject);
 					break;
 
 				//如果是抛物线
@@ -109,7 +109,7 @@ public class BulletsController : MonoBehaviour {
                             }
                         }
 					}
-					Destroy(gameObject, 3);
+					Destroy(gameObject);
 					break;
             }
 			yield return null;

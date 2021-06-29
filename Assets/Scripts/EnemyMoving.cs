@@ -17,7 +17,7 @@ public class EnemyMoving : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-        //获取路径点 数组
+        //从PathManager脚本获取路径点数组
         positions = PathManager.points;
     }
 
@@ -36,7 +36,6 @@ public class EnemyMoving : MonoBehaviour {
         {
             //获得 单位向量
             transform.Translate((positions[index] - transform.position).normalized * Time.deltaTime * speed);
-            // transform.position =  Vector3.up * 0.3f;
             if (Vector3.Distance(positions[index], transform.position) <= 1f)
             {
                 index++;

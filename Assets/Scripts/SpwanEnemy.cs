@@ -50,6 +50,7 @@ public class SpwanEnemy : MonoBehaviour {
 	//AttackNum:敌人产生的波数
 	IEnumerator AttackNum(int num)
 	{
+		yield return new WaitForSeconds(5);
 		//当前波数
 		int count = 0;
 		//设置标志位：敌人类型

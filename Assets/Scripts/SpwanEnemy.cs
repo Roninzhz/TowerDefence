@@ -13,9 +13,6 @@ public class SpwanEnemy : MonoBehaviour {
 	//敌人的名字
 	string[] EnemyName = { "Enemy01", "Enemy02" };
 
-	//路线数组
-	Vector3[] points;
-
 	void Awake()
     {
 		//加载内存中获取的敌人
@@ -38,8 +35,6 @@ public class SpwanEnemy : MonoBehaviour {
 	void Start () {
 		//开启协程
 		StartCoroutine(AttackNum(10));
-		//获取Path下的Point集合
-		points = PathManager.points;
 	}
 	
 	// Update is called once per frame
@@ -79,10 +74,10 @@ public class SpwanEnemy : MonoBehaviour {
 		while (count < number)
 		{
 			count++;
-			//每个怪产生的时间差
-			yield return new WaitForSeconds(1f);
+			//每个怪产生的时间差 2秒
+			yield return new WaitForSeconds(2f);
 			//诞生敌人的 类型 位置 旋转
-			Instantiate(Enemys[i], points[0], Quaternion.identity);
+			Instantiate(Enemys[i], PathManager.points[0], Quaternion.identity);
 			//测试诞生体的位置
 			//print(points[0]);
 		}

@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 451546}
   - component: {fileID: 14351546}
   - component: {fileID: 135392389908935382}
-  - component: {fileID: 114693355317164622}
+  - component: {fileID: 114138017122577494}
   m_Layer: 10
   m_Name: Enemy02
   m_TagString: Untagged
@@ -303,7 +303,7 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151546}
   m_IsPrefabAsset: 1
---- !u!114 &114693355317164622
+--- !u!114 &114138017122577494
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 151546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dd6dba8b6aaba24a94d2f150059c0f8, type: 3}
+  m_Script: {fileID: 11500000, guid: 61faa9aad35d7cf44be35a3551512fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   index: 0

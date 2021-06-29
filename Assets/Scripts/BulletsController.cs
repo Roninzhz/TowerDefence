@@ -57,8 +57,17 @@ public class BulletsController : MonoBehaviour {
 							//等待一个渲染帧
 							yield return null;
                         }
-						//如果目标不为空访问敌人身上的状态脚本  扣血逻辑
-                    }
+						//获取当前范围内所有敌人，进行伤害
+						Collider[] allEnemy = Physics.OverlapSphere(transform.position, 20, layer);
+						if (allEnemy != null && allEnemy.Length != 0)
+						{
+							for (int i = 0; i < allEnemy.Length; i++)
+							{
+								//依次进行扣血  范围伤害
+								allEnemy[i].GetComponent<EnemyInfo>().Damage(30);
+							}
+						}
+					}
 					//很有可能target被其他塔打死  子弹已经发射出来了，需要顺着当前的方位移动
                     else
                     {
@@ -83,7 +92,7 @@ public class BulletsController : MonoBehaviour {
 						//声明开始的位置
 						Vector3 startPos = transform.position;
 						//循环条件 如果当前子弹和敌人的位置大于5
-						while(Vector3.Distance(transform.position,target.position)>5)
+						while(target != null && Vector3.Distance(transform.position,target.position)>5)
                         {
 							//抛物线的逻辑
 							t += Time.deltaTime;
@@ -105,7 +114,7 @@ public class BulletsController : MonoBehaviour {
 							for(int i=0;i<allEnemy.Length;i++)
                             {
 								//依次进行扣血  范围伤害
-								//allEnemy[i].GetComponent<EnemyInfo>().Damage(30);
+								allEnemy[i].GetComponent<EnemyInfo>().Damage(30);
                             }
                         }
 					}

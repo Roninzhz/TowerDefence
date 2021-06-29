@@ -34,8 +34,12 @@ public class EnemyController : MonoBehaviour {
         //如果index小于 路径点数组点最大下标 就继续移动
         if (index <= PathManager.points.Length - 1)
         {
+
+            //加入看向
+            Vector3 p = PathManager.points[index];
+            transform.LookAt(p);
             //获得 单位向量
-            transform.Translate((PathManager.points[index] - transform.position).normalized * Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, p, Time.deltaTime * speed);
             if (Vector3.Distance(PathManager.points[index], transform.position) <= 1f)
             {
                 index++;

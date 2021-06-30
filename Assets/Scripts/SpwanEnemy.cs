@@ -45,7 +45,7 @@ public class SpwanEnemy : MonoBehaviour {
 	//AttackNum:敌人产生的波数
 	IEnumerator AttackNum(int num)
 	{
-		//yield return new WaitForSeconds(5);
+		yield return new WaitForSeconds(5);
 		//当前波数
 		int count = 0;
 		//设置标志位：敌人类型
@@ -74,8 +74,8 @@ public class SpwanEnemy : MonoBehaviour {
 		while (count < number)
 		{
 			count++;
-			//每个怪产生的时间差 2秒
-			yield return new WaitForSeconds(2f);
+			//每个怪产生的时间差 3秒
+			yield return new WaitForSeconds(3f);
 			//诞生敌人的 类型 位置 旋转
 			Instantiate(Enemys[i], transform.position, transform.rotation);
 			//测试诞生体的位置

@@ -52,10 +52,11 @@ public class BulletsController : MonoBehaviour {
 							//等待一个渲染帧
 							yield return null;
                         }
-                        //获取当前范围内所有敌人，进行伤害
+                        //获取当前范围内单个敌人，进行伤害
                         if (target != null)
                         {
-							target.GetComponent<EnemyInfo>().Damage(30);
+							//进行扣血，单个伤害
+							target.GetComponent<EnemyInfo>().Damage(5);
                         }
 					}
 					//很有可能target被其他塔打死  子弹已经发射出来了，需要顺着当前的方位移动
@@ -104,7 +105,7 @@ public class BulletsController : MonoBehaviour {
 							for(int i=0;i<allEnemy.Length;i++)
                             {
 								//依次进行扣血  范围伤害
-								allEnemy[i].GetComponent<EnemyInfo>().Damage(30);
+								allEnemy[i].GetComponent<EnemyInfo>().Damage(10);
                             }
                         }
 					}

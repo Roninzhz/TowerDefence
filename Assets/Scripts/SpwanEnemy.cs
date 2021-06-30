@@ -29,7 +29,6 @@ public class SpwanEnemy : MonoBehaviour {
 		//print(Enemys[0].transform.position);
 		//测试产生的敌人
 		//Instantiate(Enemys[0]);
-		//Instantiate(Enemys[1]);
 	}
 	// Use this for initialization
 	void Start () {

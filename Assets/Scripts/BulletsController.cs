@@ -22,12 +22,7 @@ public class BulletsController : MonoBehaviour {
 
 	//可以被攻击的层级
 	public LayerMask layer;
-	//由塔的控制脚本进行访问 并将塔获取的攻击对象传递进来
-	public void SetTarget(Transform enemyTF)
-    {
-		//赋值给子弹攻击目标
-		target = enemyTF;
-    }
+
 
 	void Start()
     {
@@ -57,16 +52,11 @@ public class BulletsController : MonoBehaviour {
 							//等待一个渲染帧
 							yield return null;
                         }
-						//获取当前范围内所有敌人，进行伤害
-						Collider[] allEnemy = Physics.OverlapSphere(transform.position, 20, layer);
-						if (allEnemy != null && allEnemy.Length != 0)
-						{
-							for (int i = 0; i < allEnemy.Length; i++)
-							{
-								//依次进行扣血  范围伤害
-								allEnemy[i].GetComponent<EnemyInfo>().Damage(30);
-							}
-						}
+                        //获取当前范围内所有敌人，进行伤害
+                        if (target != null)
+                        {
+							target.GetComponent<EnemyInfo>().Damage(30);
+                        }
 					}
 					//很有可能target被其他塔打死  子弹已经发射出来了，需要顺着当前的方位移动
                     else
@@ -123,7 +113,14 @@ public class BulletsController : MonoBehaviour {
             }
 			yield return null;
         }
-    }
+
+	}
+	//由塔的控制脚本进行访问 并将塔获取的攻击对象传递进来
+	public void SetTarget(Transform enemyTF)
+	{
+		//赋值给子弹攻击目标
+		target = enemyTF;
+	}
 }
 
 //子弹的类型

@@ -5,33 +5,35 @@ using UnityEngine.UI;
 
 public class EnemyInfo : MonoBehaviour {
 
-	Animator ani;
-
-	 Slider s;
-
-	public int hp = 100;
 	/// <summary>
-	/// 可以让外部去访问调用的方法
+	/// 最大血量的变量
+	/// </summary>
+	public float maxHP = 100;
+	/// <summary>
+	/// 当前血量的变量
+	/// </summary>
+	private float currentHP;
+
+	Slider slider;
 	void Start()
 	{
-		ani = GetComponent<Animator>();
-		s = GetComponentInChildren<Slider>();
+		//开始运行进行赋值
+		currentHP = maxHP;
+		//在当前挂在脚本的物体身上去找某一个组件
+		slider = GetComponentInChildren<Slider>();
 	}
-	/// </summary>
+
 	public void Damage(int v)
 	{
-		//如果血量大于外部传过来的扣减值
-		if (hp >= v)
-		{
-			//进行扣减
-			hp -= v;
-			s.value = hp;
-			if (hp <= 0)
-			{
-				//Destory销毁的方法 1.代表销毁的对象 2.代表延时时间（不写则立即销毁）
-				//Destroy(gameObject, 1);
-				Destroy(gameObject);
-			}
-		}
+        if (currentHP!=0)
+        {
+            currentHP -= v;
+            slider.value = currentHP / maxHP * slider.maxValue;
+			print(currentHP);
+            if (currentHP <= 0)
+            {
+                Destroy(gameObject); //延迟一秒销毁对象
+            }
+        }
 	}
 }

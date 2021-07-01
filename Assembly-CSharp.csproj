@@ -58,7 +58,6 @@
      <Compile Include="Assets\Scripts\CreateTower.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyInfo.cs" />
-     <Compile Include="Assets\Scripts\IEnumratorTest.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\PathManager.cs" />
      <Compile Include="Assets\Scripts\SpwanEnemy.cs" />

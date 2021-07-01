@@ -88,7 +88,6 @@ public class CreateTower : MonoBehaviour {
 	float high = 13.5f;
 	// Update is called once per frame
 	void Update () {
-
 		//通过射线实现以下逻辑
 		//接收射线
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -119,7 +118,6 @@ public class CreateTower : MonoBehaviour {
 					Instantiate(towerPrefabs[currentShowIndex],hit.transform.position+new Vector3(0,high,0),hit.transform
 						.rotation);
 				}
-
 			}
 		}
 		//禁用阴影

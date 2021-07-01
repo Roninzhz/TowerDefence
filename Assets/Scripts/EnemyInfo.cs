@@ -21,7 +21,6 @@ public class EnemyInfo : MonoBehaviour {
 	private float currentHP;
 	//定义Slider用于获取血条
 	Slider slider;
-
     // 用来存放内存中获取弹窗
     GameObject[] Canvas;
 
@@ -40,7 +39,6 @@ public class EnemyInfo : MonoBehaviour {
             //                 参数  string类型  要的是该文件下具体到加载对象名字的路径
             Canvas[i] = Resources.Load<GameObject>("Enemys/" + CanvasName[i]);
         }
-
     }
 
     void Start()

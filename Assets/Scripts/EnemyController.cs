@@ -10,8 +10,10 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
 
+    //获取敌人运动索引
     public int index = 0;
 
+    //定义敌人的速度
     float speed = 15f;
 
     // 用来存放内存中获取弹窗
@@ -33,7 +35,6 @@ public class EnemyController : MonoBehaviour {
             Canvas[i] = Resources.Load<GameObject>("Enemys/" + CanvasName[i]);
         }
         //Instantiate(Images[0]);
-
     }
     // Start is called before the first frame update
     void Start()
@@ -55,7 +56,6 @@ public class EnemyController : MonoBehaviour {
         //如果index小于 路径点数组点最大下标 就继续移动
         if (index <= PathManager.points.Length - 1)
         {
-
             //加入看向
             Vector3 p = PathManager.points[index];
             transform.LookAt(p);

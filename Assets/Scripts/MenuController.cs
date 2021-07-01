@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour {
 	void Update () {
 
 		if(Load==true)
-			slider.value += 0.2f;
+			slider.value += 0.5f;
 		if (slider.value >= 100f)
 			Invoke("ChangeScen", 1f);
 	}
@@ -74,7 +74,10 @@ public class MenuController : MonoBehaviour {
 	//退出游戏
 	public void ExitGameBtnClick()
     {
+		//未打包情况下的退出程序
 		//UnityEditor.EditorApplication.isPlaying = false;
+
+		//退出程序
 		Application.Quit();
     }
 

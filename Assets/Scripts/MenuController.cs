@@ -67,6 +67,7 @@ public class MenuController : MonoBehaviour {
 	//重新开始游戏跳转场景
 	public void RePlayGameBtnClick()
 	{
+		Time.timeScale = 1.0f;
 		SceneManager.LoadScene(0);
 	}
 

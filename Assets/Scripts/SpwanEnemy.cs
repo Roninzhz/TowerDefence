@@ -6,10 +6,13 @@ using UnityEngine;
 /// </summary>
 
 public class SpwanEnemy : MonoBehaviour {
-
+	//生成的敌人总数
+	public int EnemySum;
 	// 用来存放内存中获取的敌人
 	GameObject[] Enemys;
 
+	//敌人的波数
+	int j = 1;
 	//敌人的名字
 	string[] EnemyName = { "Enemy01", "Enemy02" };
 
@@ -33,7 +36,7 @@ public class SpwanEnemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//开启协程
-		StartCoroutine(AttackNum(10));
+		StartCoroutine(AttackNum(2));
 	}
 	
 	// Update is called once per frame
@@ -61,7 +64,7 @@ public class SpwanEnemy : MonoBehaviour {
             {
 				i = 0;
             }
-			yield return StartCoroutine(EnemyNum(20,i));
+			yield return StartCoroutine(EnemyNum(5,i));
 			//每波怪产生的时间差
 			yield return new WaitForSeconds(5);
 		}

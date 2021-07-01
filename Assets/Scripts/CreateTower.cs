@@ -88,6 +88,7 @@ public class CreateTower : MonoBehaviour {
 	float high = 13.5f;
 	// Update is called once per frame
 	void Update () {
+
 		//通过射线实现以下逻辑
 		//接收射线
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);

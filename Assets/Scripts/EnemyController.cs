@@ -12,8 +12,29 @@ public class EnemyController : MonoBehaviour {
 
     public int index = 0;
 
-    public float speed = 30f;
+    float speed = 15f;
 
+    // 用来存放内存中获取弹窗
+    GameObject[] Canvas;
+
+    //敌人的名字
+    string[] CanvasName = { "Canvas", "Canvas1" };
+
+    void Awake()
+    {
+        //加载内存中弹窗
+        //开辟空间大小 取决于弹窗的长度
+        Canvas = new GameObject[CanvasName.Length];
+        for (int i = 0; i < Canvas.Length; i++)
+        {
+            //通过循环 将Res文件夹内对应的预制体进行获取并依次赋值实现
+            //Resources.Load  方法可以通过在该文件夹中根据传入的路径进行加载游戏对象
+            //                 参数  string类型  要的是该文件下具体到加载对象名字的路径
+            Canvas[i] = Resources.Load<GameObject>("Enemys/" + CanvasName[i]);
+        }
+        //Instantiate(Images[0]);
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +65,13 @@ public class EnemyController : MonoBehaviour {
             {
                 index++;
             }
+        }
+        else
+        {
+            //产生失败弹窗
+            Instantiate(Canvas[0]);
+            //销毁对象
+            Destroy(gameObject);
         }
     }
 }

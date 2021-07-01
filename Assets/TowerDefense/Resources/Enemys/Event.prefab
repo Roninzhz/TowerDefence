@@ -52,3 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AboutImage: {fileID: 0}
+  slider: {fileID: 0}
+  ExitGameBtn: {fileID: 0}
+  AboutBtn: {fileID: 0}
+  ControlTimeBtn: {fileID: 114709832839585476, guid: b3974ecd1b51006448a62a280644de3f,
+    type: 2}

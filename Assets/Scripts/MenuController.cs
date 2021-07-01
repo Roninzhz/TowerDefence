@@ -15,14 +15,24 @@ public class MenuController : MonoBehaviour {
 	public Button ExitGameBtn;
 
 	public Button AboutBtn;
+
+	//进度条开关
 	bool Load =false;
+
+	//继续暂停游戏
+
+	public Text ControlTimeBtn;
+
+	//继续暂停 开关
+	bool ConTimeState = false;
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if(Load==true)
 			slider.value += 0.2f;
 		if (slider.value >= 100f)
@@ -66,5 +76,22 @@ public class MenuController : MonoBehaviour {
 		//UnityEditor.EditorApplication.isPlaying = false;
 		Application.Quit();
     }
+
+	//继续游戏/暂停游戏
+	public void ControlTimeClick()
+	{
+        if (ConTimeState)
+        {
+			ConTimeState = false;
+			Time.timeScale = 1.0f;
+			ControlTimeBtn.text = "暂停游戏";
+        }
+        else
+        {
+			ConTimeState = true;
+			Time.timeScale = 0f;
+			ControlTimeBtn.text = "继续游戏";
+		}
+	}
 
 }

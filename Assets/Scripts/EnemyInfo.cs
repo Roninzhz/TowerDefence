@@ -18,7 +18,7 @@ public class EnemyInfo : MonoBehaviour {
 	// 最大血量的变量
 	public float maxHP = 100;
 	// 当前血量的变量
-	private float currentHP;
+	public float currentHP;
 	//定义Slider用于获取血条
 	Slider slider;
     // 用来存放内存中获取弹窗
@@ -45,9 +45,14 @@ public class EnemyInfo : MonoBehaviour {
 	{
 		//开始运行进行赋值
 		currentHP = maxHP;
-		//在当前挂在敌人身上寻找血条
-		slider = GetComponentInChildren<Slider>();
+        //在当前挂在敌人身上寻找血条
+        slider = GetComponentInChildren<Slider>();
 	}
+
+    void Update()
+    {
+        print(currentHP);
+    }
 
 	public void Damage(int v)
 	{

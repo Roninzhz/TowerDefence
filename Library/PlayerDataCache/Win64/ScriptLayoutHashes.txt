@@ -201,7 +201,7 @@ ae0fa6aaa5e980f190fd2479500fab1a Assembly-CSharp.dll:.ColorCorrectionEffect
 846e13f6b509bedbd77270d9c9d5070d Assembly-CSharp.dll:.TwirlEffect
 846e13f6b509bedbd77270d9c9d5070d Assembly-CSharp.dll:.VortexEffect
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-77e91303bff60dfd70fd1339634d942b Assembly-CSharp.dll:.EnemyInfo
+41248edd13e40e6ac15e3849ecbb62e4 Assembly-CSharp.dll:.EnemyInfo
 37141830a6eb41da5b9e91a8f8b3bbd0 Assembly-UnityScript.dll:.FastBloom
 6893169c34f2bd6e21624eac3f65cee9 Assembly-UnityScript.dll:.AmbientObscurance
 28a69ade0a5ca9db4fc95e5369690ce4 Assembly-UnityScript.dll:.ContrastEnhance

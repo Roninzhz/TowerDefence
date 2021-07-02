@@ -64,7 +64,7 @@ public class SpwanEnemy : MonoBehaviour {
             {
 				i = 0;
             }
-			yield return StartCoroutine(EnemyNum(5,i));
+			yield return StartCoroutine(EnemyNum(10,i));
 			//每波怪产生的时间差
 			yield return new WaitForSeconds(5);
 		}

@@ -49,11 +49,6 @@ public class EnemyInfo : MonoBehaviour {
         slider = GetComponentInChildren<Slider>();
 	}
 
-    void Update()
-    {
-        print(currentHP);
-    }
-
 	public void Damage(int v)
 	{
 		//当前血量不为0，执行

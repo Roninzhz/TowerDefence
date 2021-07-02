@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class EnemyInfo : MonoBehaviour {
 
     //用来记录销毁的对象数
-	static int  num = 0;
+	 public static int  num=0;
 	// 最大血量的变量
 	public float maxHP = 100;
 	// 当前血量的变量

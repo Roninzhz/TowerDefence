@@ -56,6 +56,7 @@ public class MenuController : MonoBehaviour {
 	//加载进入游戏场景
 	public void StartGameBtnClick()
 	{
+		EnemyInfo.num = 0;
 		//当点击进入游戏按钮，禁用其他按钮
 		ExitGameBtn.interactable = false;
 		AboutBtn.interactable = false;
